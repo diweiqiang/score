@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        ul{
+            position:absolute;
+            left:50px;
+            top:50px;
+        }
+        li{
+            width:19px;
+            height:18px;
+            float: left;
+            background:url("star.png");
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <ul>
+        <li title="一星"></li>
+        <li title="二星"></li>
+        <li title="三星"></li>
+        <li title="四星"></li>
+        <li title="五星"></li>
+        <li title="六星"></li>
+        <li title="七星"></li>
+        <li title="八星"></li>
+        <li title="九星"></li>
+        <li title="十星"></li>
+        <span></span>
+    </ul>
+</div>
+
+<script src="jquery-3.1.0.js"></script>
+<script>
+    var flag=1;
+
+    $('li').click(function () {
+        if (flag){
+            flag=0;
+        }else {
+            flag=1;
+        }
+    });
+
+    $('li').mouseenter(function () {
+        if (flag)
+        {
+            $(this).css('backgroundPosition','0 -28px')
+                .prevAll().css('backgroundPosition','0 -28px');
+            $('span').html($(this).attr('title'));
+        }
+    });
+
+    $('li').mouseleave(function () {
+        if(flag)
+        {
+            $(this).css('backgroundPosition','0 0')
+                .siblings().css('backgroundPosition','0 0');
+        }
+    });
+</script>
+</body>
+</html>
