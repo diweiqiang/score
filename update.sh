@@ -1,2 +1,2 @@
-#!/bin/bash
-git add . && git commit -m 'new example'
+#! /bin/bash
+git init && git add . && git commit -m 'new example'
